@@ -28,7 +28,7 @@ public class OrderCard {
     void setUp() {
         open("http://localhost:9999/");
     }
-    
+
     @Test
     void requestCardDelivery() {
         String date = generateDate(3);
