@@ -28,23 +28,18 @@ public class OrderCard {
     void setUp() {
         open("http://localhost:9999/");
     }
-
-    @AfterEach
-    void tearDown() {
-        closeWebDriver();
-    }
-
+    
     @Test
-    void requestCardDelivery()  {
+    void requestCardDelivery() {
         String date = generateDate(3);
         $("[data-test-id= city] input").setValue("Пенза");
         $("[data-test-id= date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
         $("[data-test-id= date] input").setValue(date);
-        $("[data-test-id= name] input").setValue("Джон Сноу");
+        $("[data-test-id= name] input").setValue("Тиньков Олег");
         $("[data-test-id= phone] input").setValue("+79995553333");
         $("[data-test-id= agreement]").click();
         $$("button").find(exactText("Забронировать")).click();
-        $("[data-test-id=notification]").shouldHave(exactText("Успешно! " + "Встреча успешно забронирована на " + date), Duration.ofSeconds(10)).shouldBe(exist);
+        $("[data-test-id=notification]").shouldHave(exactText("Успешно! " + "Встреча успешно забронирована на " + date), Duration.ofSeconds(15)).shouldBe(exist);
 
     }
 }
