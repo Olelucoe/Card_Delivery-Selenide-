@@ -39,7 +39,7 @@ public class OrderCard {
         $("[data-test-id= phone] input").setValue("+79995553333");
         $("[data-test-id= agreement]").click();
         $$("button").find(exactText("Забронировать")).click();
-        $("[data-test-id=notification]").shouldHave(exactText("Успешно! " + "Встреча успешно забронирована на " + date), Duration.ofSeconds(15)).shouldBe(exist);
+        $("[data-test-id=notification]").shouldHave(exactText("Успешно! " + "Встреча успешно забронирована на " + date), Duration.ofSeconds(15)).shouldBe(visible);
 
     }
 }
